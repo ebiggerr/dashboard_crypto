@@ -32,11 +32,10 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "src/assets/sparkline.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "src/assets/jquery.sparkline.js"
-
+              "src/app/scripts/jquery.sparkline.js",
+              "src/app/scripts/sparkline.js"
             ]
           },
           "configurations": {
