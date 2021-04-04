@@ -1,4 +1,24 @@
-<script type="text/javascript" src="src/assets/sparkline.js"></script>
+<!--<script type="text/javascript" src="../scripts/sparkline.js"></script>-->
+<!--<script>
+  $(function() {
+    /!** This code runs when everything has been loaded on the page *!/
+    /!* Inline sparklines take their values from the contents of the tag *!/
+    $('.inlinesparkline').sparkline();
+
+    /!* Sparklines can also take their values from the first argument
+    passed to the sparkline() function *!/
+    var myvalues = [10,8,5,7,4,4,1];
+    $('.dynamicsparkline').sparkline(myvalues);
+
+    /!* The second argument gives options such as chart type *!/
+    $('.dynamicbar').sparkline(myvalues, {type: 'bar', barColor: 'green'} );
+
+    /!* Use 'html' instead of an array of values to pass options
+    to a sparkline with data in the tag *!/
+    $('.inlinebar').sparkline('html', {type: 'line', barColor: 'red'} );
+  });
+
+</script>-->
 
 <div class="panel panel-primary">
   <div class="panel-heading">
@@ -21,7 +41,7 @@
         <td><img src="{{coin.image}}" width="25" height="25" alt="{{coin.symbol}}"></td>
         <td>{{coin.current_price}}</td>
         <td>{{coin.total_volume}}</td>
-        <td><span class="inlinebar">{{coin.sparkline_in_7d.price}}</span></td>
+        <td><span class="inlinesparkline">{{coin.sparkline_in_7d.price}}</span></td>
         <td><button (click)="favouringCoin(coin.name)" class="btn btn-danger">Favourite</button>
         </td>
         <!--<td><button (click)="coinDetails(coin.name)" class="btn btn-info" style="margin-left: 10px">Details</button></td>-->
