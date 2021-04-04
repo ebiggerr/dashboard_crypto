@@ -1,7 +1,7 @@
  $(function() {
     /** This code runs when everything has been loaded on the page */
     /* Inline sparklines take their values from the contents of the tag */
-    $('.inlinesparkline').sparkline();
+    $('.inline').sparkline();
 
     /* Sparklines can also take their values from the first argument
     passed to the sparkline() function */
@@ -13,5 +13,5 @@
 
     /* Use 'html' instead of an array of values to pass options
     to a sparkline with data in the tag */
-    $('.inlinebar').sparkline('html', {type: 'line', barColor: 'red'} );
+    $('.inlinesparkline').sparkline('html', {type: 'line', barColor: 'red'} );
   });
