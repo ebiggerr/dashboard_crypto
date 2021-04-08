@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { CoinService } from '../coin.service';
 import { Coin } from '../coin';
@@ -11,6 +11,8 @@ import {Observable} from 'rxjs';
 })
 export class FavouritesComponent implements OnInit {
 
+  @Input()
+  favCoins = new Array<Coin>();
 
   constructor(private coinService: CoinService, private router: Router) { }
 
@@ -18,15 +20,23 @@ export class FavouritesComponent implements OnInit {
     this.getList();
   }
 
+  // tslint:disable-next-line:typedef
   getList() {
-    this.coinService.getFavourites();
+    return this.favCoins;
   }
 
   coinDetails(name: string): void {
     this.router.navigate(['details', name]);
   }
 
-  unfavouringCoin(name: string) {
-
+  // tslint:disable-next-line:typedef
+  unfavouringCoin(coin: Coin) {
+    // if(this.favCoins.)
   }
+
+  // tslint:disable-next-line:typedef
+  addIntoList(coin: Coin) {
+    this.favCoins.push(coin);
+  }
+
 }
