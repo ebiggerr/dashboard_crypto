@@ -1,11 +1,8 @@
-import { CoinDetailsComponent } from '../coin-details/coin-details.component';
-import { FavouritesComponent} from '../favourites/favourites.component';
-import { Observable } from 'rxjs';
 import { CoinService } from '../coin.service';
 import { Coin } from '../coin';
-import {Component, OnInit, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import { Router } from '@angular/router';
-import { NgModule } from '@angular/core';
+import {FavouritesService} from '../favourites.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,16 +13,7 @@ export class DashboardComponent {
 
   coins = new Array<Coin>();
 
-  @Output()
-  favCoins = new Array<Coin>();
-
-  // @ts-ignore
-  private favCom: FavouritesComponent;
-
-  // @ts-ignore
-  coin: Coin;
-
-  constructor( private coinService: CoinService, private router: Router /*, private favouritesComponent: FavouritesComponent*/) {
+  constructor( private coinService: CoinService, private router: Router , private favService: FavouritesService) {
 
     coinService.getCoinsMarketInfo().subscribe(response =>
     {
@@ -47,29 +35,15 @@ export class DashboardComponent {
 
   }
 
-  /*coins: Observable<Coin[]>;
-
-
-  constructor(private coinService: CoinService, private router: Router) { }
-
-  ngOnInit() {
-    this.getData();
-  }
-
-  getData() {
-    this.coins = this.coinService.getCoinsMarketInfo();
-
-  }
-*/
   coinDetails(name: string): void {
     this.router.navigate(['details', name]);
   }
 
   favouringCoin(coin: Coin): void {
-    this.favCom.addIntoList(coin);
-    this.favCoins.push(coin);
 
-
+    this.favService.addToFavourites(coin);
+    console.log(coin);
 
   }
+
 }

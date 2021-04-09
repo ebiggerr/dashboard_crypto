@@ -17,8 +17,8 @@
         <td><img src="{{coin.image}}" width="25" height="25" alt="{{coin.symbol}}"></td>
         <td>{{coin.current_price}}</td>
         <td>{{coin.total_volume}}</td>
-        <td><span class="inlinesparkline">{{coin.sparkline_in_7d.price}}</span></td>
-        <td><button (click)="unfavouringCoin(coin)" class="btn btn-danger">Unfavourite</button>
+        <td><span class="inlinesparkline">{{coin.sparkline_in_7d}}</span></td>
+        <td><button (click)="unFav(coin)" class="btn btn-danger">Unfavourite</button>
           <!-- <button (click)="coinDetails(coin.name)" class="btn btn-info" style="margin-left: 10px">Details</button> -->
         </td>
       </tr>
