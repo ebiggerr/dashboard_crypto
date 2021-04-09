@@ -1,9 +1,5 @@
-<script type="text/javascript" src="../scripts/sparkline.js"></script>
 
-<!--<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h2>Coin List</h2>
-  </div>
+<div class="panel panel-primary">
   <div class="panel-body">
     <table class="table table-striped">
       <thead>
@@ -16,17 +12,17 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let coin of coins | async">
+      <tr *ngFor="let coin of favCoins">
         <td>{{coin.name}}</td>
         <td><img src="{{coin.image}}" width="25" height="25" alt="{{coin.symbol}}"></td>
         <td>{{coin.current_price}}</td>
         <td>{{coin.total_volume}}</td>
-        <td><span class="inlinesparkline">{{coin.sparkline_in_7d.price}}</span></td>
-        <td><button (click)="unfavouringCoin(coin.name)" class="btn btn-danger">Unfavourite</button>
-          <button (click)="coinDetails(coin.name)" class="btn btn-info" style="margin-left: 10px">Details</button>
+        <td><span class="inlinesparkline">{{coin.sparkline_in_7d}}</span></td>
+        <td><button (click)="unFav(coin)" class="btn btn-danger">Unfavourite</button>
+          <!-- <button (click)="coinDetails(coin.name)" class="btn btn-info" style="margin-left: 10px">Details</button> -->
         </td>
       </tr>
       </tbody>
     </table>
   </div>
-</div>-->
+</div>

@@ -16,7 +16,4 @@ export class CoinService {
 
   }
 
-  getFavourites() {
-
-  }
 }

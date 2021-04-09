@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import { CoinService } from '../coin.service';
 import { Coin } from '../coin';
-import {Observable} from 'rxjs';
+import {FavouritesService} from '../favourites.service';
 
 @Component({
   selector: 'app-favourites',
@@ -11,22 +10,30 @@ import {Observable} from 'rxjs';
 })
 export class FavouritesComponent implements OnInit {
 
+  favCoins = Array<Coin>();
 
-  constructor(private coinService: CoinService, private router: Router) { }
+  constructor(private favouritesService: FavouritesService, private router: Router) { }
 
   ngOnInit(): void {
     this.getList();
   }
 
+  // tslint:disable-next-line:typedef
   getList() {
-    this.coinService.getFavourites();
+    this.favCoins = this.favouritesService.getFav();
+
   }
 
   coinDetails(name: string): void {
     this.router.navigate(['details', name]);
   }
 
-  unfavouringCoin(name: string) {
+  unFav(coin: Coin): void{
+    this.favouritesService.unFav(coin);
+    // this.ngOnInit();
 
   }
+
+
+
 }
